@@ -457,47 +457,93 @@
 // header.style.backgroundColor = "red";
 // header.style.color = "white";
 
-const text = document.getElementById("hello");
-const text1 = document.getElementsByClassName("myClass");
-const tag = document.getElementsByTagName("span");
-const Btn = document.querySelectorAll("button");
-const ClickBtn = document.querySelector("#click");
+// const text = document.getElementById("hello");
+// const text1 = document.getElementsByClassName("myClass");
+// const tag = document.getElementsByTagName("span");
+// const Btn = document.querySelectorAll("button");
+// const ClickBtn = document.querySelector("#click");
 
-function showWhenClick() {
-  const h1 = document.createElement("h1");
-  h1.innerHTML = "Nepal has adopted non-allignace foreign-policy!";
-  document.body.prepend(h1);
-}
+// function showWhenClick() {
+//   const h1 = document.createElement("h1");
+//   h1.innerHTML = "Nepal has adopted non-allignace foreign-policy!";
+//   document.body.prepend(h1);
+// }
 
-function deleteOnce() {
-  const h1 = document.querySelector("h1");
-  h1.remove();
-}
+// function deleteOnce() {
+//   const h1 = document.querySelector("h1");
+//   h1.remove();
+// }
 
-ClickBtn.onclick = showWhenClick;
-Btn[1].onclick = deleteOnce;
+// ClickBtn.onclick = showWhenClick;
+// Btn[1].onclick = deleteOnce;
 // console.log(ClickBtn.getAttribute("id"));
 // ClickBtn.setAttribute("class", "myClass");
 
-text.innerHTML = "<h1>Hello sir</h1>";
-text.style.backgroundColor = "red";
-text.style.color = "white";
+// text.innerHTML = "<h1>Hello sir</h1>";
+// text.style.backgroundColor = "red";
+// text.style.color = "white";
 
-text1[0].innerHTML = "<h3>Adipurush</h3>";
-text1[0].style.backgroundColor = "blue";
-text1[0].style.color = "white";
+// text1[0].innerHTML = "<h3>Adipurush</h3>";
+// text1[0].style.backgroundColor = "blue";
+// text1[0].style.color = "white";
 
-tag[1].innerText = "Haina k ho yesto";
+// tag[1].innerText = "Haina k ho yesto";
 
-ClickBtn.style.backgroundColor = "green";
-ClickBtn.style.color = "white";
-ClickBtn.style.cursor = "pointer";
-ClickBtn.style.padding = "10px";
-ClickBtn.style.border = "none";
+// ClickBtn.style.backgroundColor = "green";
+// ClickBtn.style.color = "white";
+// ClickBtn.style.cursor = "pointer";
+// ClickBtn.style.padding = "10px";
+// ClickBtn.style.border = "none";
 
-Btn[1].style.backgroundColor = "red";
-Btn[1].style.color = "white";
-Btn[1].style.cursor = "pointer";
-Btn[1].style.padding = "10px";
-Btn[1].style.border = "none";
-Btn[1].style.margin = "4px";
+// Btn[1].style.backgroundColor = "red";
+// Btn[1].style.color = "white";
+// Btn[1].style.cursor = "pointer";
+// Btn[1].style.padding = "10px";
+// Btn[1].style.border = "none";
+// Btn[1].style.margin = "4px";
+
+//advance array ,method
+
+const arr = [4, 5, 6, 7, 8, 3, 8, 9, 1];
+
+// const newArray = arr.find((value, index) => value > 8);
+// const newArray = arr.filter((value, index) => value > 5);
+// console.log(newArray);
+
+// arr.find((value, index) => {
+//   if (value === 6) {
+//     console.log("6 exists!");
+//   }
+// });
+
+//some
+// const newArr = arr.some((value, index) => value > 6);
+// console.log(newArr);
+
+//every
+// const newArr = arr.every((value, index) => value > 6);
+// console.log(newArr);
+
+// const newArr = arr.sort((a, b) => a - b);
+// console.log(newArr);
+
+// const myArr = [
+//   [1, 2, 3, 4],
+//   [5, 6, 7],
+//   [8, 9, 10],
+// ];
+// const flatArr = myArr.flat();
+// console.log(flatArr);
+
+//forEach
+// const newArr = arr.map((value, index) => {
+//   return (value += 7);
+// });
+
+// console.log(newArr);
+// console.log(arr)
+
+//reduce
+
+const result = arr.reduce((prevValue,currentValue)=>prevValue+currentValue)
+console.log(result)
