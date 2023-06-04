@@ -543,7 +543,52 @@ const arr = [4, 5, 6, 7, 8, 3, 8, 9, 1];
 // console.log(newArr);
 // console.log(arr)
 
-//reduce
+//DOM MANIPULATION
 
-const result = arr.reduce((prevValue,currentValue)=>prevValue+currentValue)
-console.log(result)
+const text = document.getElementById("hello");
+const text1 = document.getElementsByClassName("myClass");
+const mayor = document.getElementsByTagName("span");
+const Btn = document.querySelectorAll("button");
+const ClickBtn = document.querySelector("#click");
+
+// console.log(ClickBtn.getAttribute("id"));
+// ClickBtn.setAttribute("class", "meroClass");
+
+function ShowWhenClick() {
+  const h1 = document.createElement("h1");
+  h1.innerHTML = "Nepal has adopted non-alliagnance foreign policy";
+  document.body.prepend(h1);
+}
+
+function deleteOnes() {
+  const h1 = document.querySelector("h1");
+  h1.remove();
+}
+
+ClickBtn.onclick = ShowWhenClick;
+Btn[1].onclick = deleteOnes;
+
+ClickBtn.style.backgroundColor = "green";
+ClickBtn.style.color = "white";
+ClickBtn.style.border = "none";
+ClickBtn.style.cursor = "pointer";
+ClickBtn.style.padding = "10px";
+ClickBtn.style.margin = "5px";
+
+Btn[1].style.backgroundColor = "red";
+Btn[1].style.color = "white";
+Btn[1].style.border = "none";
+Btn[1].style.cursor = "pointer";
+Btn[1].style.padding = "10px";
+Btn[1].style.margin = "5px";
+
+mayor[0].innerHTML = "Harka Rai";
+mayor[1].innerHTML = "Balen Shah";
+
+text1[0].innerHTML = "<h2>I am good What about you!</h2>";
+text1[0].style.backgroundColor = "blue";
+text1[0].style.color = "white";
+
+text.innerHTML = "<h1>How is your Life</h1>";
+text.style.backgroundColor = "red";
+text.style.color = "white";
