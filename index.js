@@ -76,7 +76,7 @@
 
 //Strings Method
 
-let result = "Hello World!";
+// let result = "Hello World!";
 
 // console.log(result[0]);
 //length
@@ -268,10 +268,236 @@ let result = "Hello World!";
 // arr.sort((a,b)=>a-b)
 // console.log(ans);
 
-const Obj = {
-  name: "Tiba",
-  age: 20,
-  country: "India",
-};
+// const Obj = {
+//   name: "Tiba",
+//   age: 20,
+//   country: "India",
+// };
 
-console.log(Obj);
+// console.log(Obj.);
+
+// alert("Hello world");
+// console.log("Task1");
+// console.log("Task2");
+// console.log("Task3");
+
+// function sum(a, b, callBack) {
+//   const result = a + b;
+//   callBack(result);
+// }
+
+// function added(result) {
+//   const h1 = document.querySelector("h1");
+//   h1.innerText = result;
+// }
+
+// sum(4, 8, added);
+
+// let arr = [8, 9, 3, 4, 6, 5, 1];
+
+// function calculations(arr = [], callBack) {
+//   let ans = [];
+
+//   for (let i = 0; i < arr.length; i++) {
+//     const element = callBack(arr[i]);
+//     ans.push(element);
+//   }
+//   console.log(ans);
+// }
+
+// calculations(arr, (a) => a * 10);
+// calculations(arr, (a) => a / 10);
+
+// const a = new Promise((resolve, reject) => {
+//   let success = true;
+//   if (success) resolve("Promise fulfilled!");
+//   else reject("Technical error");
+// });
+
+// a.then((parameter) => console.log(parameter)).catch((error) =>
+//   console.log(error)
+// );
+
+// console.log("Hello world!");
+
+// setTimeout(() => {
+//   console.log("harka rai");
+// }, 2000);
+
+// function FetchedData() {
+//   fetch("https://catfact.ninja/fact")
+//     .then((res) => res.json())
+//     .then((data) => console.log(data))
+//     .catch((error) => console.log(error));
+// }
+
+// FetchedData();
+
+// console.log("Haina k ho yesto yo");
+
+// const arr = new Array(1, 2, 3, 4, 5);
+// console.log(arr);
+
+// function addArr(arr = []) {
+//   let total = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     total += arr[i];
+//   }
+//   return total;
+// }
+// console.log(addArr([8, 4, 5, 6, 2]));
+
+// let c = 90;
+
+// const arr = new Array(1, 3, 4, 5);
+// console.log(arr);
+
+// const arr = [];
+
+// for (let i = 0; i < 10; i++) {
+//   arr.push(i);
+// }
+
+// console.log(arr);
+
+//objects
+// let Car = {
+//   name: "Toyota",
+//   model: "Camry",
+//   color: "red",
+//   runWheel: 4,
+//   isElectric: false,
+
+//   startEngine: function () {
+//     console.log("Start engine!");
+//     return true;
+//   },
+
+//   closeEngine: function () {
+//     console.log("Close engine!");
+//     return false;
+//   },
+// };
+
+// console.log(Car);
+
+// if (Car.startEngine()) {
+//   console.log("Your car is ready to start!");
+// } else if (Car.closeEngine()) {
+//   console.log("Your car is not ready to start!");
+// } else {
+//   console.log("invalid!");
+// }
+
+//function
+
+// function myFunc(a, b, c = 90) {
+//   console.log(c);
+//   return a + b + c;
+// }
+
+// const result = myFunc(4, 5);
+// console.log(result);
+
+// let arr = [4, 7, 5, 9, 3, 5, 6];
+// function SumArr(arr = []) {
+//   let total = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     total += arr[i];
+//   }
+//   return total;
+// }
+// const ans = SumArr(arr);
+// console.log(ans);
+
+//Scoping
+// let x = 90;
+
+// {
+//   let y = 9 + 9;
+//   console.log(y);
+
+//   console.log(x);
+// }
+
+//var scope
+
+// var x = 90;
+
+// function myVar() {
+//   if (true) {
+//     var x = 9 + 9;
+//   }
+//   console.log(x);
+// }
+
+// console.log(x);
+// myVar();
+
+//for let
+
+// function myLet() {
+//   if (true) {
+//     let x = 8 * 8;
+//     console.log(x);
+//   }
+// }
+
+// myLet();
+
+//DOM
+// const header = document.getElementById("myHeader");
+// const subHeader = document.getElementsByClassName("myClass");
+
+// subHeader[0].innerHTML = "Bina dhewuake free visa mili";
+// subHeader[0].style.backgroundColor = "blue";
+// subHeader[0].style.color = "white";
+
+// header.innerHTML = "Haina k ho yesto!";
+// header.style.backgroundColor = "red";
+// header.style.color = "white";
+
+const text = document.getElementById("hello");
+const text1 = document.getElementsByClassName("myClass");
+const tag = document.getElementsByTagName("span");
+const Btn = document.querySelectorAll("button");
+const ClickBtn = document.querySelector("#click");
+
+function showWhenClick() {
+  const h1 = document.createElement("h1");
+  h1.innerHTML = "Nepal has adopted non-allignace foreign-policy!";
+  document.body.prepend(h1);
+}
+
+function deleteOnce() {
+  const h1 = document.querySelector("h1");
+  h1.remove();
+}
+
+ClickBtn.onclick = showWhenClick;
+Btn[1].onclick = deleteOnce;
+// console.log(ClickBtn.getAttribute("id"));
+// ClickBtn.setAttribute("class", "myClass");
+
+text.innerHTML = "<h1>Hello sir</h1>";
+text.style.backgroundColor = "red";
+text.style.color = "white";
+
+text1[0].innerHTML = "<h3>Adipurush</h3>";
+text1[0].style.backgroundColor = "blue";
+text1[0].style.color = "white";
+
+tag[1].innerText = "Haina k ho yesto";
+
+ClickBtn.style.backgroundColor = "green";
+ClickBtn.style.color = "white";
+ClickBtn.style.cursor = "pointer";
+ClickBtn.style.padding = "10px";
+ClickBtn.style.border = "none";
+
+Btn[1].style.backgroundColor = "red";
+Btn[1].style.color = "white";
+Btn[1].style.cursor = "pointer";
+Btn[1].style.padding = "10px";
+Btn[1].style.border = "none";
+Btn[1].style.margin = "4px";
