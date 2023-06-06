@@ -504,7 +504,7 @@
 
 //advance array ,method
 
-const arr = [4, 5, 6, 7, 8, 3, 8, 9, 1];
+// const arr = [4, 5, 6, 7, 8, 3, 8, 9, 1];
 
 // const newArray = arr.find((value, index) => value > 8);
 // const newArray = arr.filter((value, index) => value > 5);
@@ -545,50 +545,338 @@ const arr = [4, 5, 6, 7, 8, 3, 8, 9, 1];
 
 //DOM MANIPULATION
 
-const text = document.getElementById("hello");
-const text1 = document.getElementsByClassName("myClass");
-const mayor = document.getElementsByTagName("span");
-const Btn = document.querySelectorAll("button");
-const ClickBtn = document.querySelector("#click");
+// const text = document.getElementById("hello");
+// const text1 = document.getElementsByClassName("myClass");
+// const mayor = document.getElementsByTagName("span");
+// const Btn = document.querySelectorAll("button");
+// const ClickBtn = document.querySelector("#click");
 
 // console.log(ClickBtn.getAttribute("id"));
 // ClickBtn.setAttribute("class", "meroClass");
 
-function ShowWhenClick() {
-  const h1 = document.createElement("h1");
-  h1.innerHTML = "Nepal has adopted non-alliagnance foreign policy";
-  document.body.prepend(h1);
+// function ShowWhenClick() {
+//   const h1 = document.createElement("h1");
+//   h1.innerHTML = "Nepal has adopted non-alliagnance foreign policy";
+//   document.body.prepend(h1);
+// }
+
+// function deleteOnes() {
+//   const h1 = document.querySelector("h1");
+//   h1.remove();
+// }
+
+// ClickBtn.onclick = ShowWhenClick;
+// Btn[1].onclick = deleteOnes;
+
+// ClickBtn.style.backgroundColor = "green";
+// ClickBtn.style.color = "white";
+// ClickBtn.style.border = "none";
+// ClickBtn.style.cursor = "pointer";
+// ClickBtn.style.padding = "10px";
+// ClickBtn.style.margin = "5px";
+
+// Btn[1].style.backgroundColor = "red";
+// Btn[1].style.color = "white";
+// Btn[1].style.border = "none";
+// Btn[1].style.cursor = "pointer";
+// Btn[1].style.padding = "10px";
+// Btn[1].style.margin = "5px";
+
+// mayor[0].innerHTML = "Harka Rai";
+// mayor[1].innerHTML = "Balen Shah";
+
+// text1[0].innerHTML = "<h2>I am good What about you!</h2>";
+// text1[0].style.backgroundColor = "blue";
+// text1[0].style.color = "white";
+
+// text.innerHTML = "<h1>How is your Life</h1>";
+// text.style.backgroundColor = "red";
+// text.style.color = "white";
+
+//Advance array method
+
+// const arr = [3, 5, 6, 2, 1, 8, 9, 7];
+
+//find
+// const newArr = arr.find((value, index) => value > 5);
+// console.log(newArr);
+
+//filter
+// const newArr = arr.filter((value, index) => value > 5);
+// console.log(newArr);
+
+//sort
+// const newArr = arr.sort((a, b) => a - b);
+// console.log(newArr);
+
+// const SubArr = [
+//   [1, 2, 3, 4],
+//   [5, 6, 7, 8],
+//   [9, 10, 11, 12],
+// ];
+// const newArr = SubArr.flat();
+// console.log(newArr);
+
+//some
+// const result = arr.some((value, index) => value > 6);
+// console.log(result);
+
+//every
+// const result = arr.every((value, index) => value > 6);
+// console.log(result);
+
+//forEach
+// const result = arr.forEach((value, index) => (value += 5));
+// console.log(result);
+// console.log(arr);
+
+//map
+// const result = arr.map((value, index) => (value += 5));
+// console.log(result);
+// console.log(arr);
+
+//reduce
+// const result = arr.reduce(
+//   (prevValue, currentValue) => prevValue + currentValue
+// );
+// console.log(result);
+
+//USA DATA APIS
+
+//Add events listeners
+// const header = document.getElementById("header");
+// const Box = document.getElementById("box");
+// const Btn = document.getElementById("click");
+// const Input = document.querySelector("input");
+
+// Btn.classList.add("classForDiv");
+
+// Btn.addEventListener("click", () => {
+//   Box.classList.add("classForBox");
+// });
+
+// Box.addEventListener("mouseover", () => {
+//   header.innerHTML = "Prachandale india bata bhaisi lerayae";
+//   Btn.style.transform = "scale(1.2)";
+//   header.style.backgroundColor = "orange";
+//   Btn.style.filter = "";
+// });
+
+// Box.addEventListener("mouseout", () => {
+//   Btn.style.transform = "";
+//   header.style.backgroundColor = "";
+// });
+
+// Box.addEventListener("dblclick", () => {
+//   document.body.style.backgroundColor = "black";
+// });
+
+// Box.addEventListener("click", () => {
+//   document.body.style.backgroundColor = "#fff";
+// });
+
+// Btn.addEventListener("contextmenu", (e) => {
+//   e.preventDefault();
+//   Btn.style.backgroundColor = "purple";
+// });
+
+// addEventListener("contextmenu", (e) => {
+//   e.preventDefault();
+//   Btn.style.filter = "blur(10px)";
+// });
+
+// Input.addEventListener("change", (e) => {
+//   console.log(e.target.value);
+// });
+
+//Math Objects
+
+// const result = Math.round(4.5);
+// console.log(result);
+
+// const result = Math.floor(4.5);
+// console.log(result);
+
+// const result = Math.ceil(4.5);
+// console.log(result);
+
+// const result = Math.trunc(4.5);
+// console.log(result);
+
+// const result = Math.random();
+// console.log(result);
+
+// const result = Math.abs(-3);
+// console.log(result);
+
+// function myFunc(a, b) {
+//   return Math.abs(a - b);
+// }
+
+// const result = myFunc(2, 8);
+// console.log(result);
+
+// const result = Math.max(4, 5, 45);
+// console.log(result);
+
+// const result = Math.min(4, 5, 45);
+// console.log(result);
+
+// const result = Math.pow(2, 4);
+// console.log(result);
+
+// const result = Math.sqrt(625);
+// console.log(result);
+
+// const result = Math.tan((45 * Math.PI) / 180);
+// console.log(result);
+
+// const result = Math.log2(8);
+// console.log(result);
+
+// const result = Math.log10(100);
+// console.log(result);
+
+//Date
+// const result = new Date();
+// console.log(result.toISOString());
+// console.log(result.getFullYear());
+
+//Add event listener
+
+// const header = document.querySelector("#header");
+// const Box = document.querySelector("#box");
+// const Btn = document.querySelector("#listen");
+// const Input = document.querySelector("input");
+
+// Input.addEventListener("change", (event) => {
+//   console.log(event.target.value);
+// });
+
+// Btn.classList.add("classForDiv");
+
+// Btn.addEventListener("click", () => {
+//   header.innerHTML = "Prachandale india bata bhaisi lerayae";
+//   Box.classList.add("classForBox");
+// });
+
+// Btn.addEventListener("contextmenu", (e) => {
+//   e.preventDefault();
+//   Btn.style.backgroundColor = "purple";
+// });
+
+// Box.addEventListener("mouseover", () => {
+//   header.style.backgroundColor = "Orange";
+//   header.style.color = "white";
+//   Btn.style.transform = "scale(1.2)";
+// });
+
+// Box.addEventListener("mouseout", () => {
+//   header.style.backgroundColor = "";
+//   header.style.color = "";
+//   Btn.style.transform = "";
+// });
+
+// Box.addEventListener("dblclick", () => {
+//   document.body.style.backgroundColor = "black";
+// });
+
+// Box.addEventListener("click", () => {
+//   document.body.style.backgroundColor = "#fff";
+// });
+
+// window.addEventListener("contextmenu", (e) => {
+//   e.preventDefault();
+//   Btn.style.filter = "blur(10px)";
+// });
+
+//Math Object
+
+// const result = Math.round(4.5);
+// document.write(result);
+// console.log(result);
+
+// const result = Math.floor(4.5);
+// document.write(result);
+// console.log(result);
+
+// const result = Math.ceil(4.1);
+// document.write(result);
+// console.log(result);
+
+// const result = Math.trunc(6.5);
+// document.write(result);
+// console.log(result);
+
+// const result = Math.pow(2, 4);
+// document.write(result);
+// console.log(result);
+
+// const result = Math.sqrt(625);
+// document.write(result);
+// console.log(result);
+
+// const result = Math.random();
+// document.write(result);
+// console.log(result);
+
+// const result = Math.tan((45 * Math.PI) / 180);
+// document.write(result);
+// console.log(result);
+
+// const result = Math.log2(8);
+// document.write(result);
+// console.log(result);
+
+// const result = Math.log10(100);
+// document.write(result);
+// console.log(result);
+
+// const result = new Date();
+// console.log(result.getFullYear());
+// document.write(result.getFullYear());
+
+// const Obj = {
+//   name: "Ram",
+//   printName: function () {
+//     console.log(this.name);
+//   },
+// };
+// Obj.printName();
+
+//LocalStorage && sessionStorage
+
+const Input = document.querySelector("input");
+const BtnClick = document.querySelector("#click");
+const BtnLogout = document.querySelector("#clear");
+
+BtnClick.style.backgroundColor = "green";
+BtnClick.style.color = "white";
+BtnClick.style.border = "none";
+BtnClick.style.width = "100px";
+BtnClick.style.height = "50px";
+BtnClick.style.cursor = "pointer";
+
+BtnLogout.style.backgroundColor = "red";
+BtnLogout.style.color = "white";
+BtnLogout.style.border = "none";
+BtnLogout.style.width = "100px";
+BtnLogout.style.height = "50px";
+BtnLogout.style.cursor = "pointer";
+
+const addData = (e) => {
+  localStorage.setItem(
+    "key",
+    JSON.stringify({ name: "Ram", age: 23, gender: "male", isMarried: false })
+  );
+};
+
+BtnClick.addEventListener("click", addData);
+
+BtnLogout.addEventListener("click", () => {
+  localStorage.clear();
+});
+
+if (localStorage.getItem("key")) {
+  console.log(JSON.parse(localStorage.getItem("key")));
 }
-
-function deleteOnes() {
-  const h1 = document.querySelector("h1");
-  h1.remove();
-}
-
-ClickBtn.onclick = ShowWhenClick;
-Btn[1].onclick = deleteOnes;
-
-ClickBtn.style.backgroundColor = "green";
-ClickBtn.style.color = "white";
-ClickBtn.style.border = "none";
-ClickBtn.style.cursor = "pointer";
-ClickBtn.style.padding = "10px";
-ClickBtn.style.margin = "5px";
-
-Btn[1].style.backgroundColor = "red";
-Btn[1].style.color = "white";
-Btn[1].style.border = "none";
-Btn[1].style.cursor = "pointer";
-Btn[1].style.padding = "10px";
-Btn[1].style.margin = "5px";
-
-mayor[0].innerHTML = "Harka Rai";
-mayor[1].innerHTML = "Balen Shah";
-
-text1[0].innerHTML = "<h2>I am good What about you!</h2>";
-text1[0].style.backgroundColor = "blue";
-text1[0].style.color = "white";
-
-text.innerHTML = "<h1>How is your Life</h1>";
-text.style.backgroundColor = "red";
-text.style.color = "white";
