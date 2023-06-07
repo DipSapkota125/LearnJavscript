@@ -890,3 +890,24 @@
 // Btn.addEventListener("click", () => {
 //   clearInterval(ClearOut);
 // });
+
+//setTimeout and setIbterval
+
+// const BtnClear = document.querySelector("#clear");
+// const intervalId = setInterval(() => {
+//   console.log("Hello world!");
+// }, 3000);
+
+// BtnClear.addEventListener("click", () => {
+//   clearInterval(intervalId);
+// });
+
+const intervalId = setInterval(() => {
+  const now = new Date();
+  console.log(now.toLocaleTimeString());
+  document.write(now.toLocaleTimeString());
+}, 1000);
+
+setTimeout(() => {
+  clearInterval(intervalId);
+}, 5000);
