@@ -846,37 +846,47 @@
 
 //LocalStorage && sessionStorage
 
-const Input = document.querySelector("input");
-const BtnClick = document.querySelector("#click");
-const BtnLogout = document.querySelector("#clear");
+// const Input = document.querySelector("input");
+// const BtnClick = document.querySelector("#click");
+// const BtnLogout = document.querySelector("#clear");
 
-BtnClick.style.backgroundColor = "green";
-BtnClick.style.color = "white";
-BtnClick.style.border = "none";
-BtnClick.style.width = "100px";
-BtnClick.style.height = "50px";
-BtnClick.style.cursor = "pointer";
+// BtnClick.style.backgroundColor = "green";
+// BtnClick.style.color = "white";
+// BtnClick.style.border = "none";
+// BtnClick.style.width = "100px";
+// BtnClick.style.height = "50px";
+// BtnClick.style.cursor = "pointer";
 
-BtnLogout.style.backgroundColor = "red";
-BtnLogout.style.color = "white";
-BtnLogout.style.border = "none";
-BtnLogout.style.width = "100px";
-BtnLogout.style.height = "50px";
-BtnLogout.style.cursor = "pointer";
+// BtnLogout.style.backgroundColor = "red";
+// BtnLogout.style.color = "white";
+// BtnLogout.style.border = "none";
+// BtnLogout.style.width = "100px";
+// BtnLogout.style.height = "50px";
+// BtnLogout.style.cursor = "pointer";
 
-const addData = (e) => {
-  localStorage.setItem(
-    "key",
-    JSON.stringify({ name: "Ram", age: 23, gender: "male", isMarried: false })
-  );
-};
+// const addData = (e) => {
+//   localStorage.setItem(
+//     "key",
+//     JSON.stringify({ name: "Ram", age: 23, gender: "male", isMarried: false })
+//   );
+// };
 
-BtnClick.addEventListener("click", addData);
+// BtnClick.addEventListener("click", addData);
 
-BtnLogout.addEventListener("click", () => {
-  localStorage.clear();
-});
+// BtnLogout.addEventListener("click", () => {
+//   localStorage.clear();
+// });
 
-if (localStorage.getItem("key")) {
-  console.log(JSON.parse(localStorage.getItem("key")));
-}
+// if (localStorage.getItem("key")) {
+//   console.log(JSON.parse(localStorage.getItem("key")));
+// }
+
+// const Btn = document.querySelector("#clear");
+// const myFunc = () => {
+//   console.log("HEllo world");
+// };
+// const ClearOut = setInterval(myFunc, 2000);
+
+// Btn.addEventListener("click", () => {
+//   clearInterval(ClearOut);
+// });
