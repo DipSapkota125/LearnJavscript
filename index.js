@@ -902,12 +902,155 @@
 //   clearInterval(intervalId);
 // });
 
-const intervalId = setInterval(() => {
-  const now = new Date();
-  console.log(now.toLocaleTimeString());
-  document.write(now.toLocaleTimeString());
-}, 1000);
+// const intervalId = setInterval(() => {
+//   const now = new Date();
+//   console.log(now.toLocaleTimeString());
+//   document.write(now.toLocaleTimeString());
+// }, 1000);
 
-setTimeout(() => {
-  clearInterval(intervalId);
-}, 5000);
+// setTimeout(() => {
+//   clearInterval(intervalId);
+// }, 5000);
+
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+
+//   this.greet = function () {
+//     console.log(`My name is: ${this.name}.and my age is:${this.age}`);
+//   };
+// }
+// const person1 = new Person("Ram", 23);
+// const person2 = new Person("Shyam", 20);
+// const person3 = new Person("hari", 22);
+
+//OOP(Object oriented programming)
+
+// function Person(name, age) {
+//   this.name = name;
+//   this.age = age;
+
+//   this.greet = function () {
+//     console.log(
+//       `Hello everyone my name is:${this.name}.and my age is:${this.age}`
+//     );
+//   };
+// }
+
+// const person1 = new Person("Ram", 23);
+// const person2 = new Person("Shyam", 20);
+// const person3 = new Person("hari", 19);
+
+// console.log(person1, person2, person3);
+// person1.greet();
+
+// function BankAccount(customerName, balance = 0) {
+//   this.customerName = customerName;
+//   this.accountNumber = Date.now();
+//   this.balance = balance;
+
+//   this.deposit = function (amount) {
+//     this.balance += amount;
+//   };
+
+//   this.withdraw = function (amount) {
+//     this.balance -= amount;
+//   };
+// }
+
+// const addForm = document.querySelector("#addAccount");
+// const customerName = document.querySelector("#customerName");
+// const balance = document.querySelector("#balance");
+
+// const depositForm = document.querySelector("#depositAccount");
+// const accountNumber = document.querySelector("#accountNumber");
+// const amount = document.querySelector("#amount");
+
+// let accounts = [];
+// addForm.addEventListener("submit", (e) => {
+//   e.preventDefault();
+
+//   const newAccount = new BankAccount(customerName.value, +balance.value);
+//   accounts.push(newAccount);
+
+//   console.log(accounts);
+// });
+
+// depositForm.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   const account = accounts.find(
+//     (value, index) => value.accountNumber === +accountNumber.value
+//   );
+//   if (!account) return alert("account not found!");
+//   account.deposit(+amount.value);
+// });
+
+// const ramAccount = new BankAccount("Ram", 5000);
+// const shyamAccount = new BankAccount("Shyam", 3000);
+// shyamAccount.deposit(3000);
+// shyamAccount.withdraw(2000);
+
+// console.log(ramAccount, shyamAccount);
+
+// function BankAccount(customerName, balance = 0) {
+//   this.customerName = customerName;
+//   this.accountNumber = Date.now();
+//   this.balance = balance;
+// }
+
+// BankAccount.prototype.deposit = function (amount) {
+//   this.balance += amount;
+// };
+
+// BankAccount.prototype.withdraw = function (amount) {
+//   this.balance -= amount;
+// };
+
+// function SavingAccount(customerName, balance = 0) {
+//   BankAccount.call(this, customerName, balance);
+//   this.transactionsLimit = 50000;
+// }
+
+// SavingAccount.prototype = Object.create(BankAccount.prototype);
+
+// SavingAccount.prototype.takePersonalLoan = function (amount) {
+//   console.log(`Taking personal loan is : ${amount}`);
+// };
+
+// const ramAccount = new SavingAccount("Ram", 5000);
+// const sitaAccount = new SavingAccount("Sita", 3000);
+// sitaAccount.deposit(3000);
+// sitaAccount.withdraw(2000);
+// sitaAccount.takePersonalLoan(50000);
+// console.log(ramAccount);
+// console.log(sitaAccount);
+
+class BankAccount {
+  constructor(customerName, balance = 0) {
+    this.customerName = customerName;
+    this.accountNumber = Date.now();
+    this.balance = balance;
+  }
+  deposit(amount) {
+    this.balance += amount;
+  }
+
+  withdraw(amount) {
+    this.balance -= amount;
+  }
+}
+class SavingAccount extends BankAccount {
+  constructor(customerName, balance = 0) {
+    super(customerName, balance);
+  }
+  transactionsLimit = 50000;
+
+  takePersonalLoan(amount) {
+    console.log(`Taking personal loan is : ${amount}`);
+  }
+}
+
+const ramAccount = new SavingAccount("Ram", 6000);
+ramAccount.deposit(3000);
+ramAccount.takePersonalLoan(30000);
+console.log(ramAccount);
