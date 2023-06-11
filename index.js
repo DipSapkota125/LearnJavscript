@@ -948,54 +948,6 @@
 //   this.customerName = customerName;
 //   this.accountNumber = Date.now();
 //   this.balance = balance;
-
-//   this.deposit = function (amount) {
-//     this.balance += amount;
-//   };
-
-//   this.withdraw = function (amount) {
-//     this.balance -= amount;
-//   };
-// }
-
-// const addForm = document.querySelector("#addAccount");
-// const customerName = document.querySelector("#customerName");
-// const balance = document.querySelector("#balance");
-
-// const depositForm = document.querySelector("#depositAccount");
-// const accountNumber = document.querySelector("#accountNumber");
-// const amount = document.querySelector("#amount");
-
-// let accounts = [];
-// addForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-
-//   const newAccount = new BankAccount(customerName.value, +balance.value);
-//   accounts.push(newAccount);
-
-//   console.log(accounts);
-// });
-
-// depositForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const account = accounts.find(
-//     (value, index) => value.accountNumber === +accountNumber.value
-//   );
-//   if (!account) return alert("account not found!");
-//   account.deposit(+amount.value);
-// });
-
-// const ramAccount = new BankAccount("Ram", 5000);
-// const shyamAccount = new BankAccount("Shyam", 3000);
-// shyamAccount.deposit(3000);
-// shyamAccount.withdraw(2000);
-
-// console.log(ramAccount, shyamAccount);
-
-// function BankAccount(customerName, balance = 0) {
-//   this.customerName = customerName;
-//   this.accountNumber = Date.now();
-//   this.balance = balance;
 // }
 
 // BankAccount.prototype.deposit = function (amount) {
@@ -1006,51 +958,166 @@
 //   this.balance -= amount;
 // };
 
-// function SavingAccount(customerName, balance = 0) {
-//   BankAccount.call(this, customerName, balance);
-//   this.transactionsLimit = 50000;
+// const ramAccount = new BankAccount("Ram", 4000);
+// const shyamAccount = new BankAccount("Shyam", 5000);
+// shyamAccount.deposit(3000);
+
+// console.log(ramAccount);
+// console.log(shyamAccount);
+
+//class
+
+// class BankAccount {
+//   constructor(customerName, balance = 0) {
+//     this.customerName = customerName;
+//     this.accountNumber = Date.now();
+//     this.balance = balance;
+//   }
+
+//   deposit(amount) {
+//     this.balance += amount;
+//   }
+
+//   withdraw(amount) {
+//     this.balance -= amount;
+//   }
 // }
 
-// SavingAccount.prototype = Object.create(BankAccount.prototype);
+// class SavingAccount extends BankAccount {
+//   constructor(customerName, balance = 0) {
+//     super(customerName, balance);
+//   }
+//   transactionsLimit = 50000;
 
-// SavingAccount.prototype.takePersonalLoan = function (amount) {
-//   console.log(`Taking personal loan is : ${amount}`);
-// };
+//   takePersonalLoan(amount) {
+//     console.log(`Taking Personal Loan is : ${amount}`);
+//   }
+// }
+// const ramAccount = new SavingAccount("Ram", 4000);
+// ramAccount.deposit(2000);
 
-// const ramAccount = new SavingAccount("Ram", 5000);
-// const sitaAccount = new SavingAccount("Sita", 3000);
-// sitaAccount.deposit(3000);
-// sitaAccount.withdraw(2000);
-// sitaAccount.takePersonalLoan(50000);
+// ramAccount.takePersonalLoan(40000);
 // console.log(ramAccount);
-// console.log(sitaAccount);
+
+// class BankAccount {
+//   customerName;
+//   accountNumber;
+//   #balance = 0;
+//   constructor(customerName, balance = 0) {
+//     this.customerName = customerName;
+//     this.accountNumber = Date.now();
+//     this.#balance = balance; // Encapsulated balance
+//   }
+
+//   deposit(amount) {
+//     this.#balance += amount;
+//   }
+
+//   withdraw(amount) {
+//     this.#balance -= amount;
+//   }
+
+//   setBalance(newBalance) {
+//     this.#balance = newBalance;
+//   }
+
+//   getBalance() {
+//     return this.#balance;
+//   }
+// }
+
+// class CurrentAccount extends BankAccount {
+//   transactionsLimit = 50000;
+//   constructor(customerName, balance = 0) {
+//     super(customerName, balance);
+//   }
+
+//   #calculatingInterest(amount) {
+//     console.log(`Calculating Interest amount for : ${amount}`);
+
+//     const interest = amount * 0.05;
+//     console.log(`Calculated interest rate is : ${interest}`);
+//   }
+//   takingBusinessLoan(amount) {
+//     this.#calculatingInterest(amount);
+//     console.log(`Taking business loan is : ${amount}`);
+//   }
+// }
+
+// const ramAccount = new CurrentAccount("Ram", 4000);
+// ramAccount.takingBusinessLoan(10000);
+// console.log(ramAccount);
+
+// class Profile {
+//   static id = 1;
+//   constructor(name, age, income) {
+//     this.name = name;
+//     this.age = age;
+//     this.income = income;
+//     this.id = Profile.id++;
+//   }
+
+// static compareByAge(user1, user2) {
+//   return user1.age - user2.age;
+// }
+
+// static compareByIncome(user1, user2) {
+//   return user1.income - user2.income;
+// }
+
+// static compareByFind(value) {
+//   return value.income > 1000;
+// }
+// }
 
 class BankAccount {
+  customerName;
+  accountNumber;
+  #balance = 0;
   constructor(customerName, balance = 0) {
     this.customerName = customerName;
     this.accountNumber = Date.now();
-    this.balance = balance;
+    this.#balance = balance; //encapsulate property
   }
+
   deposit(amount) {
-    this.balance += amount;
+    this.#balance += amount;
   }
 
   withdraw(amount) {
-    this.balance -= amount;
+    this.#balance -= amount;
+  }
+
+  setBalance(newBalance) {
+    if (isNaN(newBalance)) {
+      throw new Error("Number must be valid!");
+    }
+    this.#balance = newBalance;
+  }
+
+  getBalance() {
+    return this.#balance;
   }
 }
-class SavingAccount extends BankAccount {
+
+class CurrentAccount extends BankAccount {
+  transactionsLimit = 50000;
   constructor(customerName, balance = 0) {
     super(customerName, balance);
   }
-  transactionsLimit = 50000;
-
-  takePersonalLoan(amount) {
-    console.log(`Taking personal loan is : ${amount}`);
+  #calculateInterest(amount) {
+    console.log(`Calculating amount for : ${amount}`);
+    const interest = amount * 0.05;
+    console.log(`Calculated interest rate is : ${interest}`);
+  }
+  takeBusinessLoan(amount) {
+    this.#calculateInterest(amount);
+    console.log(`Taking business loan is : ${amount}`);
   }
 }
 
-const ramAccount = new SavingAccount("Ram", 6000);
-ramAccount.deposit(3000);
-ramAccount.takePersonalLoan(30000);
+const ramAccount = new CurrentAccount("Ram", 7000);
+ramAccount.takeBusinessLoan(20000);
+// ramAccount.setBalance(9000);
+// console.log(ramAccount.getBalance());
 console.log(ramAccount);
