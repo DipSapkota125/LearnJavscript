@@ -1070,54 +1070,91 @@
 // }
 // }
 
-class BankAccount {
-  customerName;
-  accountNumber;
-  #balance = 0;
-  constructor(customerName, balance = 0) {
-    this.customerName = customerName;
-    this.accountNumber = Date.now();
-    this.#balance = balance; //encapsulate property
-  }
+// class BankAccount {
+//   customerName;
+//   accountNumber;
+//   #balance = 0;
+//   constructor(customerName, balance = 0) {
+//     this.customerName = customerName;
+//     this.accountNumber = Date.now();
+//     this.#balance = balance; //encapsulate property
+//   }
 
-  deposit(amount) {
-    this.#balance += amount;
-  }
+// deposit(amount) {
+//   this.#balance += amount;
+// }
 
-  withdraw(amount) {
-    this.#balance -= amount;
-  }
+// withdraw(amount) {
+//   this.#balance -= amount;
+// }
 
-  setBalance(newBalance) {
-    if (isNaN(newBalance)) {
-      throw new Error("Number must be valid!");
-    }
-    this.#balance = newBalance;
-  }
+//   setBalance(newBalance) {
+//     if (isNaN(newBalance)) {
+//       throw new Error("Number must be valid!");
+//     }
+//     this.#balance = newBalance;
+//   }
 
-  getBalance() {
-    return this.#balance;
-  }
-}
+//   getBalance() {
+//     return this.#balance;
+//   }
+// }
 
-class CurrentAccount extends BankAccount {
-  transactionsLimit = 50000;
-  constructor(customerName, balance = 0) {
-    super(customerName, balance);
-  }
-  #calculateInterest(amount) {
-    console.log(`Calculating amount for : ${amount}`);
-    const interest = amount * 0.05;
-    console.log(`Calculated interest rate is : ${interest}`);
-  }
-  takeBusinessLoan(amount) {
-    this.#calculateInterest(amount);
-    console.log(`Taking business loan is : ${amount}`);
-  }
-}
+// class CurrentAccount extends BankAccount {
+//   transactionsLimit = 50000;
+//   constructor(customerName, balance = 0) {
+//     super(customerName, balance);
+//   }
+//   #calculateInterest(amount) {
+//     console.log(`Calculating amount for : ${amount}`);
+//     const interest = amount * 0.05;
+//     console.log(`Calculated interest rate is : ${interest}`);
+//   }
+//   takeBusinessLoan(amount) {
+//     this.#calculateInterest(amount);
+//     console.log(`Taking business loan is : ${amount}`);
+//   }
+// }
 
-const ramAccount = new CurrentAccount("Ram", 7000);
-ramAccount.takeBusinessLoan(20000);
+// const ramAccount = new CurrentAccount("Ram", 7000);
+// ramAccount.takeBusinessLoan(20000);
 // ramAccount.setBalance(9000);
 // console.log(ramAccount.getBalance());
-console.log(ramAccount);
+// console.log(ramAccount);
+
+//static property and method
+
+class Person {
+  static id = 1;
+  constructor(name, age, income) {
+    this.name = name;
+    this.age = age;
+    this.income = income;
+    this.id = Person.id++;
+  }
+
+  static compareByAge(a, b) {
+    return a.age - b.age;
+  }
+
+  static compareByIncome(a, b) {
+    return a.income - b.income;
+  }
+
+  static compareByFind(value, index) {
+    return value.income > 300;
+  }
+
+  static compareByFilter(value, index) {
+    return value.income > 300;
+  }
+}
+
+const user1 = new Person("ram", 23, 4000);
+const user2 = new Person("shyam", 14, 1000);
+const user3 = new Person("sita", 27, 300);
+
+const users = [user1, user2, user3];
+
+const result = users.filter(Person.compareByFilter);
+console.log(result);
