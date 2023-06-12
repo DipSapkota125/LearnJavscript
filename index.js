@@ -1122,39 +1122,157 @@
 // console.log(ramAccount.getBalance());
 // console.log(ramAccount);
 
-//static property and method
+// class BankAccount {
+//   customerName;
+//   accountNumber;
+//   #balance = 0;
+//   constructor(customerName, balance = 0) {
+//     this.customerName = customerName;
+//     this.accountNumber = Date.now();
+//     this.#balance = balance;
+//   }
 
-class Person {
-  static id = 1;
-  constructor(name, age, income) {
-    this.name = name;
-    this.age = age;
-    this.income = income;
-    this.id = Person.id++;
-  }
+//   deposit(amount) {
+//     this.#balance += amount;
+//   }
 
-  static compareByAge(a, b) {
-    return a.age - b.age;
-  }
+//   withdraw(amount) {
+//     this.#balance -= amount;
+//   }
 
-  static compareByIncome(a, b) {
-    return a.income - b.income;
-  }
+//   setBalance(newBalance) {
+//     if (isNaN(newBalance)) {
+//       throw new Error("Number must be valid!");
+//     }
+//     this.#balance = newBalance;
+//   }
 
-  static compareByFind(value, index) {
-    return value.income > 300;
-  }
+//   getBalance() {
+//     return this.#balance;
+//   }
+// }
 
-  static compareByFilter(value, index) {
-    return value.income > 300;
-  }
-}
+// class CurrentAccount extends BankAccount {
+//   transactionsLimit = 50000;
+//   constructor(customerName, balance = 0) {
+//     super(customerName, balance);
+//   }
 
-const user1 = new Person("ram", 23, 4000);
-const user2 = new Person("shyam", 14, 1000);
-const user3 = new Person("sita", 27, 300);
+//   #calculateInterest(amount) {
+//     console.log(`Calculating amount interest for:${amount}`);
 
-const users = [user1, user2, user3];
+//     const interest = amount * 0.05;
+//     console.log(`Calculated interest is : ${interest}`);
+//   }
 
-const result = users.filter(Person.compareByFilter);
-console.log(result);
+//   takeBusinessLoan(amount) {
+//     this.#calculateInterest(amount);
+//     console.log(`Taking business loan is : ${amount}`);
+//   }
+// }
+
+// const ramAccount = new CurrentAccount("Ram", 5000);
+// ramAccount.setBalance(9000);
+// console.log(ramAccount.getBalance());
+// ramAccount.takeBusinessLoan(20000);
+// console.log(ramAccount);
+
+//Static property and method
+
+// class Auth {
+//   static dbEmail = "email@gmail.com";
+//   static dbPassword = "password";
+//   static dbToken = "sjdbfkdf";
+// }
+
+// console.log(Auth.dbEmail);
+
+// class Person {
+//   constructor(name, age, income) {
+//     this.name = name;
+//     this.age = age;
+//     this.income = income;
+//   }
+
+//   static compareByAge(a, b) {
+//     return a.age - b.age;
+//   }
+
+//   static compareByIncome(a, b) {
+//     return a.income - b.income;
+//   }
+
+//   static compareByFilter(value, index) {
+//     return value.income > 1000;
+//   }
+// }
+
+// const user1 = new Person("Ram", 34, 5000);
+// const user2 = new Person("Laxman", 10, 1000);
+// const user3 = new Person("Sita", 5, 50000);
+
+// const users = [user1, user2, user3];
+// const result = users.filter(Person.compareByFilter);
+// console.log(result);
+
+// function add(a, b, cb) {
+//   const result = a + b;
+//   cb(result);
+// }
+
+// function add(a, b, cb) {
+//   const result = a + b;
+//   cb(result);
+// }
+
+// function displaySum(ans) {
+//   console.log(`The sum of two number is : ${ans}`);
+// }
+
+// add(4, 8, displaySum);
+
+// let myArr = [7, 8, 3, 4, 9, 2, 1];
+
+// function calculation(arr = [], cb) {
+//   let ans = [];
+
+//   for (let i = 0; i < arr.length; i++) {
+//     ans.push(cb(arr[i]));
+//   }
+
+//   console.log(ans);
+// }
+
+// calculation(myArr, (a) => a * 10);
+// calculation(myArr, (a) => a / 10);
+
+let personList = [];
+
+const fetchedData = (callBack) => {
+  setTimeout(
+    (callBack) => {
+      personList.push(
+        { id: 1, name: "Ram", age: 23 },
+        { id: 2, name: "Shyam", age: 20 },
+        { id: 3, name: "gita", age: 19 },
+        { id: 4, name: "Hari", age: 15 }
+      );
+      callBack();
+      console.log(personList);
+    },
+    4000,
+    callBack
+  );
+};
+
+const displayName = () => {
+  setTimeout(() => {
+    for (let i = 0; i < personList.length; i++) {
+      const p = document.createElement("p");
+      p.innerHTML = personList[i].name;
+      document.body.append(p);
+    }
+  }, 1000);
+};
+
+fetchedData(displayName);
