@@ -1,0 +1,17 @@
+{
+   "data":"ram Thapa",
+   "age":23,
+   "isMarried":false,
+   "students":[
+      {
+            "id":1,
+            "name":"ram",
+            "age":24
+      },
+        {
+            "id":2,
+            "name":"shyam",
+            "age":20
+      }
+   ]
+}

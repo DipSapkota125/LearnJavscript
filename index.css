@@ -1,73 +1,96 @@
-/* * {
+* {
   margin: 0%;
-  padding: 0%;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
 }
 
-h1 {
-  text-align: center;
-}
-
-body {
-  background-color: rgb(232, 192, 141);
-}
 .container {
-  background-color: #fff;
-  padding: 30px;
-  font-family: sans-serif;
-  min-height: 100vh;
-  width: 70%;
-  margin: auto;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-}
-
-input,
-textarea,
-button {
-  padding: 10px;
-  margin: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  outline: none;
-}
-
-button {
-  background-color: red;
-  color: white;
-  font: 14px;
-  cursor: pointer;
-}
-button:hover {
-  background-color: rgb(222, 58, 58);
-}
-
-.task {
-  background-color: rgb(247, 247, 247);
-  display: flex;
-  align-items: center;
-  padding: 30px;
-  margin: 2vmax;
-  font: 100 1.1rem sans-serif;
-  color: black;
-}
-
-.task > div {
   width: 100%;
-}
-
-.task span {
-  color: rgba(0, 0, 0, 0.632);
-}
-
-.btnDelete {
-  border-radius: 100%;
+  height: 100vh;
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 30px;
-  width: 30px;
-  font-size: 1.6rem;
-  background-color: crimson;
-} */
+}
+
+.container::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: url("./bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  opacity: 0.4;
+}
+
+.weather {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.weather > div {
+  margin: 0.625rem;
+}
+
+.weather1 {
+  font-size: 4rem;
+}
+
+.weather p {
+  font-size: 2rem;
+}
+.weather span {
+  font-size: 0.75rem;
+}
+
+.weather3 span {
+  margin: 0.3rem;
+}
+
+.weather3 img {
+  width: 2rem;
+}
+nav {
+  height: 100px;
+  border-radius: 100px 100px 0 0;
+  padding: 1rem 0;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.18);
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  background-color: rgba(180, 177, 177, 0.075);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav form {
+  width: 70%;
+  grid-template-columns: 5fr 1fr;
+  display: grid;
+}
+
+.searchField {
+  font-size: 1.1rem;
+  outline: none;
+  color: white;
+  background-color: transparent;
+  padding: 1rem 0;
+  border: none;
+  border-bottom: 2px solid white;
+  width: 98%;
+}
+
+nav form button {
+  background-color: rgb(255, 195, 100);
+  border-radius: 0 25px 25px 0;
+  font-size: 1.1rem;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}

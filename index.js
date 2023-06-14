@@ -1246,33 +1246,233 @@
 // calculation(myArr, (a) => a * 10);
 // calculation(myArr, (a) => a / 10);
 
-let personList = [];
+// let personList = [];
 
-const fetchedData = (callBack) => {
-  setTimeout(
-    (callBack) => {
-      personList.push(
-        { id: 1, name: "Ram", age: 23 },
-        { id: 2, name: "Shyam", age: 20 },
-        { id: 3, name: "gita", age: 19 },
-        { id: 4, name: "Hari", age: 15 }
-      );
-      callBack();
-      console.log(personList);
-    },
-    4000,
-    callBack
-  );
+// const fetchedData = (callBack) => {
+//   setTimeout(
+//     (callBack) => {
+//       personList.push(
+//         { id: 1, name: "Ram", age: 23 },
+//         { id: 2, name: "Shyam", age: 20 },
+//         { id: 3, name: "gita", age: 19 },
+//         { id: 4, name: "Hari", age: 15 }
+//       );
+
+//       setTimeout(()=>{
+//        console.log("Hello world!")
+//       },2000)
+//       callBack();
+//        setTimeout(() => {
+//          for (let i = 0; i < personList.length; i++) {
+//            const p = document.createElement("p");
+//            p.innerHTML = personList[i].name;
+//            document.body.append(p);
+//          }
+//        }, 1000);
+//       console.log(personList);
+//     },
+//     4000,
+//     callBack
+//   );
+// };
+
+// const displayName = () => {
+
+// };
+
+// fetchedData(displayName);
+
+// const ans = new Promise((resolve, reject) => {
+//   let success = false;
+//   if (success) resolve("Promise fulfilled!");
+//   else reject("internal server error!");
+// });
+
+// ans
+//   .then((params) => console.log(params))
+//   .catch((err) => console.log(err))
+//   .finally(() => console.log("done"));
+
+// let arr = [];
+
+// const fetchedData = () => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       arr.push({ name: "Ram" });
+//       if (arr.length > 0) resolve("Data fetched!");
+//       else reject("Some technical error");
+//     }, 3000);
+//   });
+// };
+
+// fetchedData(arr)
+//   .then((msg) => console.log(msg))
+//   .catch((err) => console.log(err))
+//   .finally(() => console.log("done"));
+
+// const URL = "https://catfact.ninja/fact";
+// const h1 = document.querySelector("h1");
+
+// const fetchedData = () => {
+//   fetch(URL)
+//     .then((res) => res.json())
+//     .then((data) => (h1.innerHTML = data.fact))
+//     .catch((err) => console.log(err));
+// };
+
+// fetchedData();
+
+// const fetchedData = async () => {
+//   try {
+//     const res = await fetch(URL);
+//     const data = await res.json();
+//     h1.innerHTML = data.fact;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// const ans = new Promise((resolve, reject) => {
+//   let success = true;
+//   if (success) resolve("Promise fulfilled!");
+//   else reject("Internal server error!");
+// });
+
+// ans
+//   .then((message) => console.log(message))
+//   .catch((err) => console.log(err))
+//   .finally(() => console.log("Both"));
+
+// const arr = [];
+// const fetchedData = () => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       arr.push({ name: "ram" });
+//       if (arr.length > 0) resolve("Data fetched!");
+//       else reject("Some technical error");
+//     }, 4000);
+//   });
+// };
+
+// fetchedData(arr)
+//   .then((msg) => console.log(msg))
+//   .catch((err) => console.log(err));
+
+// const URL = "https://catfact.ninja/fact";
+// const h1 = document.querySelector("h1");
+
+// const fetchedData = async () => {
+//   try {
+//     const res = await fetch(URL);
+//     const data = await res.json();
+//     h1.innerHTML = data.fact;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// fetchedData();
+
+// const fetchedData = () => {
+//   fetch(URL)
+//     .then((res) => res.json())
+//     .then((data) => (h1.innerHTML = data.fact))
+//     .catch((err) => console.log(err));
+// };
+
+// fetchedData();
+
+// navigator.geolocation.getCurrentPosition((a) => console.log(a.coords));
+
+// console.log(screen);
+
+// console.log(location.protocol);
+// console.log(location.port);
+// console.log(location.host);
+// console.log(location.hostname);
+
+// console.log(location.href);
+
+// console.log(location.search);
+
+const temperatureField = document.querySelector(".weather1");
+const cityField = document.querySelector(".weather2 p");
+const dateField = document.querySelector(".weather2 span");
+const emojiField = document.querySelector(".weather3 img");
+const weatherField = document.querySelector(".weather3 span");
+const form = document.querySelector("form");
+const input = document.querySelector(".searchField");
+
+let target = "kathmandu";
+const fetchedData = async (target) => {
+  try {
+    const res = await fetch(
+      `https://api.weatherapi.com/v1/current.json?key=5b9c3d315a1342a18ea122531232901&q=${target}`
+    );
+
+    const data = await res.json();
+    console.log(data);
+
+    const {
+      current: {
+        temp_c,
+        condition: { icon, text },
+      },
+      location: { name, localtime },
+    } = data;
+
+    temperatureField.innerHTML = `${temp_c}&deg;C`;
+    cityField.innerHTML = name;
+    emojiField.src = icon;
+    weatherField.innerHTML = text;
+
+    const exactTime = localtime.split(" ")[1];
+    const exactDate = localtime.split(" ")[0];
+
+    const currentDate = new Date();
+    const currentDay = getTodaysDay(currentDate.getDay());
+
+    dateField.innerText = `${exactTime} -${currentDay} ${exactDate} `;
+  } catch (error) {
+    alert("Location not found!");
+  }
 };
 
-const displayName = () => {
-  setTimeout(() => {
-    for (let i = 0; i < personList.length; i++) {
-      const p = document.createElement("p");
-      p.innerHTML = personList[i].name;
-      document.body.append(p);
-    }
-  }, 1000);
-};
+fetchedData(target);
 
-fetchedData(displayName);
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (!input.value) {
+    alert("Field must be filled!");
+  } else {
+    target = input.value;
+    fetchedData(target);
+  }
+});
+
+function getTodaysDay(num) {
+  switch (num) {
+    case 0:
+      return "Sunday";
+
+    case 1:
+      return "Monday";
+
+    case 2:
+      return "Tuesday";
+
+    case 3:
+      return "Wednesday";
+
+    case 4:
+      return "Thursday";
+    case 5:
+      return "Friday";
+
+    case 6:
+      return "Saturday";
+
+    default:
+      return "Invalid";
+  }
+}
