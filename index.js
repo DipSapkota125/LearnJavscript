@@ -1403,16 +1403,15 @@ const weatherField = document.querySelector(".weather3 span");
 const form = document.querySelector("form");
 const input = document.querySelector(".searchField");
 
-let target = "kathmandu";
-const fetchedData = async (target) => {
+let target = "Kathmandu";
+const fetchData = async (target) => {
   try {
     const res = await fetch(
       `https://api.weatherapi.com/v1/current.json?key=5b9c3d315a1342a18ea122531232901&q=${target}`
     );
-
     const data = await res.json();
     console.log(data);
-
+    //destructure
     const {
       current: {
         temp_c,
@@ -1424,29 +1423,28 @@ const fetchedData = async (target) => {
     temperatureField.innerHTML = `${temp_c}&deg;C`;
     cityField.innerHTML = name;
     emojiField.src = icon;
-    weatherField.innerHTML = text;
+    weatherField.innerText = text;
 
     const exactTime = localtime.split(" ")[1];
     const exactDate = localtime.split(" ")[0];
 
     const currentDate = new Date();
     const currentDay = getTodaysDay(currentDate.getDay());
-
-    dateField.innerText = `${exactTime} -${currentDay} ${exactDate} `;
+    dateField.innerText = `${exactTime} - ${currentDay} ${exactDate}`;
   } catch (error) {
     alert("Location not found!");
   }
 };
 
-fetchedData(target);
+fetchData(target);
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (!input.value) {
-    alert("Field must be filled!");
+  if (input.value.trim() === "") {
+    alert("Filed must be filled!");
   } else {
     target = input.value;
-    fetchedData(target);
+    fetchData(target);
   }
 });
 
@@ -1454,21 +1452,16 @@ function getTodaysDay(num) {
   switch (num) {
     case 0:
       return "Sunday";
-
     case 1:
       return "Monday";
-
     case 2:
       return "Tuesday";
-
     case 3:
       return "Wednesday";
-
     case 4:
       return "Thursday";
     case 5:
       return "Friday";
-
     case 6:
       return "Saturday";
 
